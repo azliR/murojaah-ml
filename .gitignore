@@ -1,0 +1,15 @@
+**/*.pickle
+**/*.pkl
+**/*.pyc
+**/*.csv
+/audio/**/*.wav
+.cache/**
+env/**
+.idea/
+.idea/*
+audio_preprocessing/.ipynb_checkpoints/**
+*.tmp-*/**
+**/*.txt
+docs/build/
+*.DS_Store
+**/*_copy.*
