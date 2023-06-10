@@ -1,5 +1,6 @@
-import dill as pickle
 import json
+
+import dill as pickle
 import numpy as np
 
 QURAN_KEY = "quran"
@@ -98,7 +99,7 @@ if __name__ == "__main__":
         encode_char_as_one_hot, \
         decode_one_hot_as_string = create_one_hot_encoding(quranic_char_list)
 
-    print("encoded manually!")
+    print("Successfully encoded!")
     print(char_to_int_map)
 
     one_hot_quran_encoding = generate_a_one_hot_encoded_script(

@@ -13,3 +13,4 @@ audio_preprocessing/.ipynb_checkpoints/**
 docs/build/
 *.DS_Store
 **/*_copy.*
+**/*.npy

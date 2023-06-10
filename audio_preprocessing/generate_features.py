@@ -1,10 +1,12 @@
-import os
 import functools
+import os
+
+import librosa
 import numpy as np
-import utils.recording as recording_utils
 import tensorflow as tf
-from scipy.io import wavfile
 from tensorflow import signal as tf_signal
+
+import utils.recording as recording_utils
 
 ALL_SURAHS = 0
 NUM_SURAHS = 114
@@ -96,16 +98,18 @@ def generate_features():
     print(paths_to_tensorize)
 
     for path in paths_to_tensorize:
-        sample_rate_hz, signal = wavfile.read(path)
+        audio_data, sample_rate_hz = librosa.load(path)
 
-        if signal.shape[0] < int(FRAME_SIZE_S * sample_rate_hz):
+        if audio_data.shape[0] < int(FRAME_SIZE_S * sample_rate_hz):
             print('Recording at path {} is not long enough.'.format(path))
             continue
 
-        signal = signal.transpose()
+        audio_data = audio_data.transpose()
+        audio_data = librosa.resample(audio_data, orig_sr=sample_rate_hz, target_sr=16000)
+        sample_rate_hz = 16000
 
         if sample_rate_hz in SUPPORTED_FREQUENCIES:
-            output = generate_mfcc(signal, sample_rate_hz)
+            output = generate_mfcc(audio_data, sample_rate_hz)
         else:
             print('Unsupported sampling frequency for recording at path %s: %d.' % (
                 path, sample_rate_hz))
