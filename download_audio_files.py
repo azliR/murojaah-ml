@@ -51,9 +51,8 @@ def download_all_recordings(labeled_entries: list[list[str]]) -> None:
     succeed_download = 0
     for entry in tqdm(labeled_entries, desc='Audio Files'):
         url = entry[2]
-        print(url)
         downloaded_recording_dir = prepare_recording_directory('audio', int(entry[0]), int(entry[1]))
-        result = download_recording_from_url(url, downloaded_recording_dir, use_cache=False)
+        result = download_recording_from_url(url, downloaded_recording_dir)
         if result is not None:
             succeed_download = succeed_download + 1
     print('Succeed download: {}'.format(succeed_download))
