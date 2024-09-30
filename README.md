@@ -5,3 +5,8 @@ This research aims to make it easier to memorize the Koran without having to nee
 ## Read full paper [here](https://doi.org/10.15575/kjrt.v1i2.235)
 
 ## A web used for collecting this model datasets can be found [here](https://github.com/azliR/flutter_murojaah-web)
+
+## Result
+![](docs/assets/murojaah-ml-0.webp)
+![](docs/assets/murojaah-ml-1.webp)
+![](docs/assets/murojaah-ml-2.webp)
